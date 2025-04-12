@@ -11,6 +11,7 @@
 - **Axios** for API requests
 - **SCSS / CSS Modules** for styling
 - **React Hooks**
+- Code Formatting with **Prettier**
 - **Lodash.debounce**, **React Pagination**, **React Content Loader**
 - **Code Splitting** and performance optimizations
 
