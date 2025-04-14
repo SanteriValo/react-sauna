@@ -1,24 +1,16 @@
 import "./styles/app.scss";
-import header from "./components/header";
+import Header from "./components/Header.tsx";
+import Categories from "./components/Categories.tsx";
 
 function App() {
   return (
     <div>
       <div className="wrapper">
-        {header()}
+        {Header()}
         <div className="content">
           <div className="container">
             <div className="content__top">
-              <div className="categories">
-                <ul>
-                  <li className="active">All</li>
-                  <li>Wood-Fired Stoves</li>
-                  <li>Electric Stoves</li>
-                  <li>Aromatherapy</li>
-                  <li>Bath Brooms</li>
-                  <li>Accessories</li>
-                </ul>
-              </div>
+              {Categories()}
               <div className="sort">
                 <div className="sort__label">
                   <svg
