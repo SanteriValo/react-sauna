@@ -1,4 +1,4 @@
-function Categories() {
+const Categories = () => {
   return (
     <div className="categories">
       <ul>
@@ -11,6 +11,6 @@ function Categories() {
       </ul>
     </div>
   );
-}
+};
 
 export default Categories;

@@ -1,7 +1,7 @@
-function ItemBlock() {
+const ItemBlock = (props) => {
   return (
     <div className="item-block">
-      <h4 className="item-block__title">Harvia KR60</h4>
+      <h4 className="item-block__title">{props.name}</h4>
       <img
         className="item-block__image"
         src="https://public.keskofiles.com/f/btt/ASSET_JPEG_24921771?auto=format&bg=fff&dpr=1&fit=fill&h=819&q=80&w=1200"
@@ -19,7 +19,7 @@ function ItemBlock() {
         </ul>
       </div>
       <div className="item-block__bottom">
-        <div className="item-block__price">from 180 €</div>
+        <div className="item-block__price">from {props.price}€</div>
         <div className="button button--outline button--add">
           <svg
             width="12"
@@ -39,6 +39,6 @@ function ItemBlock() {
       </div>
     </div>
   );
-}
+};
 
 export default ItemBlock;

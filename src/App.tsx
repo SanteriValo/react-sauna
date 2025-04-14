@@ -4,7 +4,7 @@ import Categories from "./components/Categories.tsx";
 import Sort from "./components/Sort.tsx";
 import ItemBlock from "./components/ItemBlock.tsx";
 
-function App() {
+const App = () => {
   return (
     <div>
       <div className="wrapper">
@@ -17,17 +17,15 @@ function App() {
             </div>
             <h2 className="content__title">All items</h2>
             <div className="content__items">
-              {ItemBlock()}
-              {ItemBlock()}
-              {ItemBlock()}
-              {ItemBlock()}
-              {ItemBlock()}
+              <ItemBlock name={"Harvia333"} price={240} />
+              <ItemBlock name={"Harvia999"} price={490} />
+              <ItemBlock name={"Harvia111"} price={179} />
             </div>
           </div>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default App;

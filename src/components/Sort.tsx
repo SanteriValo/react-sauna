@@ -1,4 +1,4 @@
-function Sort() {
+const Sort = () => {
   return (
     <div className="sort">
       <div className="sort__label">
@@ -26,6 +26,6 @@ function Sort() {
       </div>
     </div>
   );
-}
+};
 
 export default Sort;
