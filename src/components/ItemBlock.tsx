@@ -1,7 +1,14 @@
-const ItemBlock = (props) => {
+import { useState } from "react";
+
+const ItemBlock = ({ name, price }) => {
+  const [addedItems, setAddedItems] = useState(0);
+
+  const handleAddItems = () => {
+    setAddedItems(addedItems + 1);
+  };
   return (
     <div className="item-block">
-      <h4 className="item-block__title">{props.name}</h4>
+      <h4 className="item-block__title">{name}</h4>
       <img
         className="item-block__image"
         src="https://public.keskofiles.com/f/btt/ASSET_JPEG_24921771?auto=format&bg=fff&dpr=1&fit=fill&h=819&q=80&w=1200"
@@ -19,8 +26,11 @@ const ItemBlock = (props) => {
         </ul>
       </div>
       <div className="item-block__bottom">
-        <div className="item-block__price">from {props.price}€</div>
-        <div className="button button--outline button--add">
+        <div className="item-block__price">from {price}€</div>
+        <button
+          onClick={handleAddItems}
+          className="button button--outline button--add"
+        >
           <svg
             width="12"
             height="12"
@@ -34,8 +44,8 @@ const ItemBlock = (props) => {
             />
           </svg>
           <span>Add</span>
-          <i>2</i>
-        </div>
+          <i>{addedItems}</i>
+        </button>
       </div>
     </div>
   );
