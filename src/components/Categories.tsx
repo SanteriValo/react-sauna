@@ -3,6 +3,15 @@ import { useState } from "react";
 const Categories = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
+  const categories = [
+    "All",
+    "Wood-Fired Stoves",
+    "Electric Stoves",
+    "Aromatherapy",
+    "Bath Brooms",
+    "Accessories",
+  ];
+
   const onClickCategory = (index: number) => {
     setActiveIndex(index);
   };
@@ -10,42 +19,14 @@ const Categories = () => {
   return (
     <div className="categories">
       <ul>
-        <li
-          onClick={() => onClickCategory(0)}
-          className={activeIndex === 0 ? "active" : ""}
-        >
-          All
-        </li>
-        <li
-          onClick={() => onClickCategory(1)}
-          className={activeIndex === 1 ? "active" : ""}
-        >
-          Wood-Fired Stoves
-        </li>
-        <li
-          onClick={() => onClickCategory(2)}
-          className={activeIndex === 2 ? "active" : ""}
-        >
-          Electric Stoves
-        </li>
-        <li
-          onClick={() => onClickCategory(3)}
-          className={activeIndex === 3 ? "active" : ""}
-        >
-          Aromatherapy
-        </li>
-        <li
-          onClick={() => onClickCategory(4)}
-          className={activeIndex === 4 ? "active" : ""}
-        >
-          Bath Brooms
-        </li>
-        <li
-          onClick={() => onClickCategory(5)}
-          className={activeIndex === 5 ? "active" : ""}
-        >
-          Accessories
-        </li>
+        {categories.map((category, index) => (
+          <li
+            onClick={() => onClickCategory(index)}
+            className={activeIndex === index ? "active" : ""}
+          >
+            {category}
+          </li>
+        ))}
       </ul>
     </div>
   );
