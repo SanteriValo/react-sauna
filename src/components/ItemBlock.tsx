@@ -1,36 +1,43 @@
 import { useState } from "react";
 
-const ItemBlock = ({ name, price }) => {
-  const [addedItems, setAddedItems] = useState(0);
+const ItemBlock = ({ name, price, imageUrl, power, color }) => {
+  const [activeColor, setActiveColor] = useState<number>(0);
+  const [activePower, setActivePower] = useState<number>(0);
+  const colors = ["black", "silver"];
 
-  const handleAddItems = () => {
-    setAddedItems(addedItems + 1);
-  };
   return (
     <div className="item-block">
       <h4 className="item-block__title">{name}</h4>
-      <img
-        className="item-block__image"
-        src="https://public.keskofiles.com/f/btt/ASSET_JPEG_24921771?auto=format&bg=fff&dpr=1&fit=fill&h=819&q=80&w=1200"
-        alt="Harvia Stove"
-      />
+      <img className="item-block__image" src={imageUrl} alt="Harvia Stove" />
       <div className="item-block__selector">
         <ul>
-          <li className="active">black</li>
-          <li>silver</li>
+          {color.map((color) => (
+            <li
+              onClick={() => {
+                setActiveColor(color);
+              }}
+              className={activeColor === color ? "active" : ""}
+            >
+              {colors[color]}
+            </li>
+          ))}
         </ul>
         <ul>
-          <li className="active">6 kW</li>
-          <li>8 kW</li>
-          <li>12 kW</li>
+          {power.map((power, index) => (
+            <li
+              onClick={() => {
+                setActivePower(index);
+              }}
+              className={activePower === index ? "active" : ""}
+            >
+              {power} kW
+            </li>
+          ))}
         </ul>
       </div>
       <div className="item-block__bottom">
         <div className="item-block__price">from {price}€</div>
-        <button
-          onClick={handleAddItems}
-          className="button button--outline button--add"
-        >
+        <button className="button button--outline button--add">
           <svg
             width="12"
             height="12"
@@ -44,7 +51,7 @@ const ItemBlock = ({ name, price }) => {
             />
           </svg>
           <span>Add</span>
-          <i>{addedItems}</i>
+          <i>0</i>
         </button>
       </div>
     </div>

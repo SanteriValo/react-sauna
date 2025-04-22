@@ -3,6 +3,7 @@ import Header from "./components/Header.tsx";
 import Categories from "./components/Categories.tsx";
 import Sort from "./components/Sort.tsx";
 import ItemBlock from "./components/ItemBlock.tsx";
+import productList from "./assets/data/productList.json";
 
 const App = () => {
   return (
@@ -17,9 +18,9 @@ const App = () => {
             </div>
             <h2 className="content__title">All items</h2>
             <div className="content__items">
-              <ItemBlock name={"Harvia333"} price={240} />
-              <ItemBlock name={"Harvia999"} price={490} />
-              <ItemBlock name={"Harvia111"} price={179} />
+              {productList.map((item) => (
+                <ItemBlock {...item} />
+              ))}
             </div>
           </div>
         </div>
