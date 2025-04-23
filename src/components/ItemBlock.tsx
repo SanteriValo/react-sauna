@@ -13,6 +13,7 @@ const ItemBlock = ({ name, price, imageUrl, power, color }) => {
         <ul>
           {color.map((color) => (
             <li
+              key={color}
               onClick={() => {
                 setActiveColor(color);
               }}
@@ -25,6 +26,7 @@ const ItemBlock = ({ name, price, imageUrl, power, color }) => {
         <ul>
           {power.map((power, index) => (
             <li
+              key={power}
               onClick={() => {
                 setActivePower(index);
               }}
