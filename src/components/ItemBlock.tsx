@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const ItemBlock = ({ name, price, imageUrl, power, color }) => {
-  const [activeColor, setActiveColor] = useState<number>(0);
+  const [activeColor, setActiveColor] = useState<number>(color?.[0] ?? 0);
   const [activePower, setActivePower] = useState<number>(0);
   const colors = ["black", "silver"];
 
