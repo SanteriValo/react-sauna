@@ -3,9 +3,21 @@ import Header from "./components/Header.tsx";
 import Categories from "./components/Categories.tsx";
 import Sort from "./components/Sort.tsx";
 import ItemBlock from "./components/ItemBlock.tsx";
-import productList from "./assets/data/productList.json";
+import { useEffect, useState } from "react";
 
 const App = () => {
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    fetch("https://680bb9062ea307e081d21a74.mockapi.io/items")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setItems(data);
+      });
+  }, []);
+
   return (
     <div>
       <div className="wrapper">
@@ -18,7 +30,7 @@ const App = () => {
             </div>
             <h2 className="content__title">All items</h2>
             <div className="content__items">
-              {productList.map((item) => (
+              {items.map((item) => (
                 <ItemBlock key={item.id} {...item} />
               ))}
             </div>
