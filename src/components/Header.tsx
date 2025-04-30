@@ -1,10 +1,11 @@
 import logoSvg from "../assets/img/sauna-logo.svg?url";
+import { Link } from "react-router";
 
 function Header() {
   return (
     <div className="header">
       <div className="container">
-        <a href="/">
+        <Link to="/">
           <div className="header__logo">
             <img width="52" src={logoSvg} alt="Sauna logo" />
             <div>
@@ -12,9 +13,9 @@ function Header() {
               <p>online store for traditional Finnish sauna equipment</p>
             </div>
           </div>
-        </a>
+        </Link>
         <div className="header__cart">
-          <a href="/cart" className="button button--cart">
+          <Link to="/cart" className="button button--cart">
             <span>52 €</span>
             <div className="button__delimiter"></div>
             <svg
@@ -47,7 +48,7 @@ function Header() {
               />
             </svg>
             <span>3</span>
-          </a>
+          </Link>
         </div>
       </div>
     </div>
