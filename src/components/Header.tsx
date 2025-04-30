@@ -4,15 +4,17 @@ function Header() {
   return (
     <div className="header">
       <div className="container">
-        <div className="header__logo">
-          <img width="52" src={logoSvg} alt="Sauna logo" />
-          <div>
-            <h1>React Sauna</h1>
-            <p>online store for traditional Finnish sauna equipment</p>
+        <a href="/">
+          <div className="header__logo">
+            <img width="52" src={logoSvg} alt="Sauna logo" />
+            <div>
+              <h1>React Sauna</h1>
+              <p>online store for traditional Finnish sauna equipment</p>
+            </div>
           </div>
-        </div>
+        </a>
         <div className="header__cart">
-          <a href="/cart.html" className="button button--cart">
+          <a href="/cart" className="button button--cart">
             <span>52 €</span>
             <div className="button__delimiter"></div>
             <svg
