@@ -2,11 +2,13 @@ import styles from "./NotFoundBlock.module.scss";
 
 const NotFoundBlock = () => {
   return (
-    <h1 className={styles.root}>
+    <div className={styles.root}>
       <span>😔</span>
-      <br />
-      Not found
-    </h1>
+      <h2>Not found</h2>
+      <p className={styles.description}>
+        Unfortunately, this page is not available in our store.
+      </p>
+    </div>
   );
 };
 
