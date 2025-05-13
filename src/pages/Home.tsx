@@ -20,7 +20,7 @@ export const Home = () => {
   }, []);
 
   return (
-    <>
+    <div className="container">
       <div className="content__top">
         {Categories()}
         {Sort()}
@@ -31,7 +31,7 @@ export const Home = () => {
           ? [...new Array(6)].map((_, index) => <Skeleton key={index} />)
           : items.map((obj) => <ItemBlock key={obj.id} {...obj} />)}
       </div>
-    </>
+    </div>
   );
 };
 
