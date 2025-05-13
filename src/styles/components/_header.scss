@@ -38,16 +38,24 @@
 
     h1 {
       color: $accent;
-      font-family: Pacifico;
+      font-family: Pacifico, serif;
       font-size: 32px;
       letter-spacing: 1%;
       text-transform: uppercase;
       font-weight: 900;
+
+      @media (max-width: 500px) {
+        font-size: 16px;
+      }
     }
 
     p {
       color: #7b7b7b;
       font-size: 12.5px;
+
+      @media (max-width: 500px) {
+        display: none;
+      }
     }
   }
 }

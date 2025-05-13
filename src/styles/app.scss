@@ -21,6 +21,12 @@ body {
 
   &__title {
     margin: 35px 0;
+
+    @media (max-width: 1080px) {
+      margin-left: auto;
+      margin-right: auto;
+      width: fit-content;
+    }
   }
 
   &__items {
@@ -340,11 +346,6 @@ body {
       line-height: 145.4%;
       letter-spacing: 0.01em;
       color: #777777;
-    }
-
-    icon {
-      position: relative;
-      top: 2px;
     }
 
     img {
