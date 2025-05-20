@@ -1,13 +1,17 @@
 import { useState } from "react";
 
-const Sort = () => {
+const Sort = ({ value, setSortType }) => {
   const [openSort, setOpenSort] = useState(false);
-  const [selected, setSelected] = useState(0);
-  const sortingList = ["popularity", "price up", "price down", "alphabet"];
-  const selectedCategory = sortingList[selected];
+  const sortingList = [
+    { name: "popularity", sortProperty: "rating" },
+    { name: "price up", sortProperty: "price" },
+    { name: "price down", sortProperty: "price" },
+    { name: "alphabet", sortProperty: "title" },
+  ];
+  const selectedCategory = sortingList[value].name;
 
   const onClickToItemlist = (item) => {
-    setSelected(item);
+    setSortType(item);
     setTimeout(() => {
       setOpenSort(!openSort);
     }, 85);
@@ -40,15 +44,15 @@ const Sort = () => {
       {openSort && (
         <div className="sort__popup">
           <ul>
-            {sortingList.map((name, index) => (
+            {sortingList.map((obj, index) => (
               <li
-                key={name}
+                key={obj.name}
                 onClick={() => {
                   onClickToItemlist(index);
                 }}
-                className={selected === index ? "active" : ""}
+                className={value === index ? "active" : ""}
               >
-                {name}
+                {obj.name}
               </li>
             ))}
           </ul>
