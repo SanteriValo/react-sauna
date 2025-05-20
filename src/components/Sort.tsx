@@ -4,11 +4,10 @@ const Sort = ({ value, setSortType }) => {
   const [openSort, setOpenSort] = useState(false);
   const sortingList = [
     { name: "popularity", sortProperty: "rating" },
-    { name: "price up", sortProperty: "price" },
+    { name: "price up", sortProperty: "-price" },
     { name: "price down", sortProperty: "price" },
     { name: "alphabet", sortProperty: "title" },
   ];
-  const selectedCategory = sortingList[value].name;
 
   const onClickToItemlist = (item) => {
     setSortType(item);
@@ -38,7 +37,7 @@ const Sort = ({ value, setSortType }) => {
             setOpenSort(!openSort);
           }}
         >
-          {selectedCategory}
+          {value.name}
         </span>
       </div>
       {openSort && (
@@ -48,9 +47,11 @@ const Sort = ({ value, setSortType }) => {
               <li
                 key={obj.name}
                 onClick={() => {
-                  onClickToItemlist(index);
+                  onClickToItemlist(obj);
                 }}
-                className={value === index ? "active" : ""}
+                className={
+                  value.sortProperty === obj.sortProperty ? "active" : ""
+                }
               >
                 {obj.name}
               </li>
