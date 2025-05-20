@@ -7,9 +7,17 @@ import { useEffect, useState } from "react";
 export const Home = () => {
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [categoryId, setCategoryId] = useState(0);
+  const [sortType, setSortType] = useState(0);
+
+  console.log({ categoryId }, { sortType });
 
   useEffect(() => {
-    fetch("https://680bb9062ea307e081d21a74.mockapi.io/items")
+    setIsLoading(true);
+    fetch(
+      "https://680bb9062ea307e081d21a74.mockapi.io/items?category=" +
+        categoryId,
+    )
       .then((res) => {
         return res.json();
       })
@@ -18,13 +26,16 @@ export const Home = () => {
         setIsLoading(false);
       });
     window.scrollTo(0, 0);
-  }, []);
+  }, [categoryId, sortType]);
 
   return (
     <div className="container">
       <div className="content__top">
-        {Categories()}
-        {Sort()}
+        <Categories
+          value={categoryId}
+          setCategoryId={(index) => setCategoryId(index)}
+        />
+        <Sort value={sortType} setSortType={setSortType} />
       </div>
       <h2 className="content__title">All items</h2>
       <div className="content__items">
