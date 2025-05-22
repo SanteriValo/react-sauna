@@ -9,15 +9,16 @@
   }
 }
 
+/*TODO fix icons place*/
 .icon {
   opacity: 0.5;
-  position: relative;
+  position: absolute;
   left: -44px;
 }
 
 .iconClear {
   opacity: 0.5;
-  position: relative;
+  position: absolute;
   right: 96px;
 }
 
@@ -33,6 +34,7 @@
 
 .search {
   margin: 35px 0;
+  position: relative;
   align-items: center;
   display: flex;
   gap: 16px;
