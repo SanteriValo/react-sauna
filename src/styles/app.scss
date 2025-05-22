@@ -19,6 +19,13 @@ body {
 .content {
   padding: 40px 0;
 
+  &__searchblock {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
   &__title {
     margin: 35px 0;
 
@@ -27,6 +34,11 @@ body {
       margin-right: auto;
       width: fit-content;
     }
+  }
+
+  &__search {
+    margin: 35px 0;
+    align-self: flex-end;
   }
 
   &__items {
@@ -114,24 +126,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-
-  .content__title {
-    display: flex;
-    align-items: center;
-    font-size: 32px;
-
-    svg {
-      position: relative;
-      top: -2px;
-      width: 30px;
-      height: 30px;
-      margin-right: 10px;
-      path {
-        stroke: $black;
-        stroke-width: 1.9;
-      }
-    }
   }
 
   .content__items {

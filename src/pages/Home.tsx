@@ -44,7 +44,10 @@ export const Home = () => {
         />
         <Sort value={sortType} setSortType={setSortType} />
       </div>
-      <h2 className="content__title">All items</h2>
+      <div className="content__searchblock">
+        <h2 className="content__title">All items</h2>
+        <h3 className="content__search">Search:</h3>
+      </div>
       <div className="content__items">
         {isLoading
           ? [...new Array(6)].map((_, index) => <Skeleton key={index} />)
