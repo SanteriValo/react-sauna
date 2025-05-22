@@ -3,8 +3,9 @@ import Sort from "../components/Sort.tsx";
 import Skeleton from "../components/ItemBlock/Skeleton.tsx";
 import ItemBlock from "../components/ItemBlock";
 import { useEffect, useState } from "react";
+import SearchBlock from "../components/SearchBlock";
 
-export const Home = () => {
+export const Home = ({ searchValue, setSearchValue }) => {
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [categoryId, setCategoryId] = useState(0);
@@ -44,10 +45,7 @@ export const Home = () => {
         />
         <Sort value={sortType} setSortType={setSortType} />
       </div>
-      <div className="content__searchblock">
-        <h2 className="content__title">All items</h2>
-        <h3 className="content__search">Search:</h3>
-      </div>
+      <SearchBlock searchValue={searchValue} setSearchValue={setSearchValue} />
       <div className="content__items">
         {isLoading
           ? [...new Array(6)].map((_, index) => <Skeleton key={index} />)
