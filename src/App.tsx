@@ -3,6 +3,7 @@ import Header from "./components/Header.tsx";
 import Home from "./pages/Home.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import Cart from "./pages/Cart";
+import ScrollToTopButton from "./components/ScrollToTopButton";
 import { Route, Routes } from "react-router";
 import { useState } from "react";
 
@@ -28,6 +29,7 @@ const App = () => {
           </Routes>
         </div>
       </div>
+      <ScrollToTopButton />
     </div>
   );
 };
