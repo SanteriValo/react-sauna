@@ -1,15 +1,28 @@
 import styles from "./ScrollToTopButton.module.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const ScrollToTopButton = () => {
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrolled = window.scrollY;
+      setVisible(scrolled > 300);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     visible && (
       <div className="wrapper">
         <button
           className={`${styles.scrollToTopButton} button`}
-          /*onClick={scrollToTop}*/
+          onClick={scrollToTop}
         >
           <svg
             className={styles.icon}
