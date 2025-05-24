@@ -1,0 +1,23 @@
+@import '../../styles/_variables.scss';
+
+.scrollToTopButton {
+    z-index: 1000;
+    position: fixed;
+    right: 60px;
+    bottom: 80px;
+    width: 4em;
+    height: 4em;
+    border: none;
+    background-color: $accent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2em;
+    padding: 0;
+}
+
+.icon {
+    color: white;
+    width: 2em;
+    height: 2em;
+}
