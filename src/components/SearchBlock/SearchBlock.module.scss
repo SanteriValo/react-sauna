@@ -12,8 +12,13 @@
 .iconClear {
   opacity: 0.5;
   position: absolute;
-  padding-top: 2px;
+  top: 7px;
   right: 5px;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
 }
 
 .title {

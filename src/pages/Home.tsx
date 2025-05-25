@@ -36,6 +36,18 @@ export const Home = ({ searchValue, setSearchValue }) => {
     window.scrollTo(0, 0);
   }, [categoryId, sortType]);
 
+  const filteringItems = items
+    .filter((item) => {
+      if (item.name.toLowerCase().includes(searchValue.toLowerCase())) {
+        return true;
+      }
+      return false;
+    })
+    .map((obj) => <ItemBlock key={obj.name} {...obj} />);
+  const skeletons = [...new Array(6)].map((_, index) => (
+    <Skeleton key={index} />
+  ));
+
   return (
     <div className="container">
       <div className="content__top">
@@ -47,9 +59,7 @@ export const Home = ({ searchValue, setSearchValue }) => {
       </div>
       <SearchBlock searchValue={searchValue} setSearchValue={setSearchValue} />
       <div className="content__items">
-        {isLoading
-          ? [...new Array(6)].map((_, index) => <Skeleton key={index} />)
-          : items.map((obj) => <ItemBlock key={obj.name} {...obj} />)}
+        {isLoading ? skeletons : filteringItems}
       </div>
     </div>
   );

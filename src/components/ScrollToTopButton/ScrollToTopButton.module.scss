@@ -1,4 +1,4 @@
-@import '../../styles/_variables.scss';
+@use '../../styles/_variables' as *;
 
 .scrollToTopButton {
     z-index: 1000;
