@@ -1,4 +1,4 @@
-@import '../variables.scss';
+@use '../variables.scss';
 
 .sort {
   position: relative;
@@ -15,8 +15,8 @@
     }
 
     span {
-      color: $accent;
-      border-bottom: 1px dashed $accent;
+      color: variables.$accent;
+      border-bottom: 1px dashed variables.$accent;
       cursor: pointer;
     }
   }
@@ -45,7 +45,7 @@
 
         &.active {
           font-weight: bold;
-          color: $accent;
+          color: variables.$accent;
         }
       }
     }

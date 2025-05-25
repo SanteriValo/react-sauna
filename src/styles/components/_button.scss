@@ -1,16 +1,18 @@
-@import '../variables.scss';
+@use "sass:color";
+@use '../variables.scss';
+@use '../libs/normalize.scss' as mixins;
 
 .button {
   display: inline-block;
-  background-color: $accent;
+  background-color: variables.$accent;
   border-radius: 30px;
   padding: 10px 20px;
   min-width: 100px;
   text-align: center;
   cursor: pointer;
-  transition: background-color $duration ease-in-out, border-color $duration ease-in-out;
+  transition: background-color variables.$duration ease-in-out, border-color variables.$duration ease-in-out;
   border: 1px solid transparent;
-  @include noselect();
+  @include mixins.noselect();
 
   &,
   span {
@@ -21,15 +23,15 @@
   span,
   path,
   svg {
-    transition: all $duration ease-in-out;
+    transition: all variables.$duration ease-in-out;
   }
 
   &:hover {
-    background-color: darken($accent, 8%);
+    background-color: color.adjust(variables.$accent, $lightness: -8%);
   }
 
   &:active {
-    background-color: darken($accent, 12%);
+    background-color: color.adjust(variables.$accent, $lightness: -12%);
     transform: translateY(1px);
   }
 
@@ -45,30 +47,30 @@
   }
 
   &--black {
-    background-color: $black;
+    background-color: variables.$black;
 
     &:hover,
     &:active {
-      background-color: lighten($color: $black, $amount: 10);
+      background-color: color.adjust($color: variables.$black, $lightness: 10);
     }
   }
 
   &--outline {
     background-color: #fff;
-    border-color: $accent;
+    border-color: variables.$accent;
     &,
     span {
-      color: $accent;
+      color: variables.$accent;
     }
 
     svg {
       path {
-        fill: $accent;
+        fill: variables.$accent;
       }
     }
 
     &:hover {
-      background-color: $accent;
+      background-color: variables.$accent;
 
       &,
       span {
@@ -83,7 +85,7 @@
     }
 
     &:active {
-      background-color: darken($accent, 8%);
+      background-color: color.adjust(variables.$accent, $lightness: -8%);
     }
   }
 
@@ -108,14 +110,14 @@
     &:hover {
       i {
         background-color: #fff;
-        color: $accent;
+        color: variables.$accent;
       }
     }
 
     i {
       display: inline-block;
       border-radius: 30px;
-      background-color: $accent;
+      background-color: variables.$accent;
       color: #fff;
       font-weight: 600;
       width: 22px;

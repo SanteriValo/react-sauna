@@ -1,7 +1,7 @@
-@import './variables.scss';
-@import './libs/normalize.scss';
-
-@import 'components/all';
+@use './variables' as *;
+@use './libs/normalize';
+@use 'components/all';
+@use './libs/normalize.scss' as mixins;
 
 body {
   background-color: $background;
@@ -114,7 +114,7 @@ body {
     display: flex;
     align-items: center;
     cursor: pointer;
-    @include noselect();
+    @include mixins.noselect();
 
     span {
       display: inline-block;

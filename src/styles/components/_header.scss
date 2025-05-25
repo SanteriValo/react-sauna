@@ -1,7 +1,7 @@
-@import '../variables.scss';
+@use '../variables.scss';
 
 .header {
-  border-bottom: 1px solid $gray-line;
+  border-bottom: 1px solid variables.$gray-line;
   padding: 40px 0;
 
   .container {
@@ -37,7 +37,7 @@
     }
 
     h1 {
-      color: $accent;
+      color: variables.$accent;
       font-family: Pacifico, serif;
       font-size: 32px;
       letter-spacing: 1%;
