@@ -22,8 +22,10 @@ export const Home = ({ searchValue, setSearchValue }) => {
     const order = sortType.sortProperty.includes("-") ? "asc" : "desc";
     const sortBy = sortType.sortProperty.replace("-", "");
     const category = categoryId > 0 ? `category=${categoryId}` : "";
+    const search = searchValue ? `&search=${searchValue}` : "";
+
     fetch(
-      `https://680bb9062ea307e081d21a74.mockapi.io/items?${category}&sortBy=${sortBy}&order=${order}
+      `https://680bb9062ea307e081d21a74.mockapi.io/items?${category}&sortBy=${sortBy}&order=${order}${search}
     `,
     )
       .then((res) => {
@@ -34,16 +36,11 @@ export const Home = ({ searchValue, setSearchValue }) => {
         setIsLoading(false);
       });
     window.scrollTo(0, 0);
-  }, [categoryId, sortType]);
+  }, [categoryId, sortType, searchValue]);
 
-  const filteringItems = items
-    .filter((item) => {
-      if (item.name.toLowerCase().includes(searchValue.toLowerCase())) {
-        return true;
-      }
-      return false;
-    })
-    .map((obj) => <ItemBlock key={obj.name} {...obj} />);
+  const filteringItems = items.map((obj) => (
+    <ItemBlock key={obj.name} {...obj} />
+  ));
   const skeletons = [...new Array(6)].map((_, index) => (
     <Skeleton key={index} />
   ));
