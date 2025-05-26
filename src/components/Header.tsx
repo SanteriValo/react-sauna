@@ -7,10 +7,10 @@ function Header() {
       <div className="container">
         <Link to="/">
           <div className="header__logo">
-            <img width="52" src={logoSvg} alt="Sauna logo" />
+            <img width="72" src={logoSvg} alt="Sauna logo" />
             <div>
               <h1>React Sauna</h1>
-              <p>online store for traditional Finnish sauna equipment</p>
+              <p>educational React-based online store</p>
             </div>
           </div>
         </Link>

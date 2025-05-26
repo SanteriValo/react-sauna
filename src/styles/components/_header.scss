@@ -2,7 +2,8 @@
 
 .header {
   border-bottom: 1px solid variables.$gray-line;
-  padding: 40px 0;
+  padding: 40px 0 50px 0;
+
 
   .container {
     display: grid;
@@ -25,6 +26,7 @@
 
   &__logo {
     display: flex;
+    position: relative;
     align-items: center;
 
     @media (max-width: 780px) {
@@ -34,6 +36,19 @@
 
     img {
       margin-right: 15px;
+    }
+
+    p {
+      color: #7b7b7b;
+      font-size: 16.5px;
+      display: flex;
+      position: absolute;
+      top: 50px;
+      margin-top: 5px;
+      margin-left: 6px;
+      @media (max-width: 500px) {
+        display: none;
+      }
     }
 
     h1 {
@@ -46,15 +61,6 @@
 
       @media (max-width: 500px) {
         font-size: 16px;
-      }
-    }
-
-    p {
-      color: #7b7b7b;
-      font-size: 12.5px;
-
-      @media (max-width: 500px) {
-        display: none;
       }
     }
   }
